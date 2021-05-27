@@ -127,7 +127,7 @@ int productOfRange(const int startVal, const int endVal)
  * @param value A number to be determined if positive or negative
  * @return Returns <code>true</code> if the number is positive, <code>false</code> if the number is negative.
  */
-bool isPositive(double value)
+bool isPositive(const double value)
 {
     assert(value != 0); //Must NOT be 0
     if (value > 0)
