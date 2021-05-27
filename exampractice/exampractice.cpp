@@ -15,7 +15,7 @@ using namespace std;
 
 //Function Prototypes
 int sumOfRange(const int startVal, const int endVal);
-int productOfRange(int startVal, int endVal);
+int productOfRange(const int startVal, const int endVal);
 bool isPositive(const double value);
 void showMenu();
 
@@ -41,7 +41,11 @@ int main()
             cin.ignore(); //Ignore phantom line
             cout << sumOfRange(start, end) << endl;
             break;
-        case 2: //productOfRange
+        case 2: 
+            cout << "Enter the starting and ending values: \n";
+            cin >> start >> end;
+            cin.ignore(); //Ignore phantom line
+            cout << productOfRange(start, end) << endl;
             break;
         case 3: //isPositive
             break;
@@ -85,6 +89,19 @@ int sumOfRange(const int startVal, const int endVal)
     return sum;
 }
 
-
+/**
+ * Function <code>productOfRange</code> computes the product of the elements in a defined range.
+ * <BR>
+ * @param startVal Starting value from which multiplication will start.
+ * @param endVal Last value to be multiplied from the range.
+ * @return Returns the result of the product.
+ */
+int productOfRange(const int startVal, const int endVal)
+{
+    int result = 1;
+    for (int i = startVal; i <= endVal; i++)
+        result *= i;
+    return result;
+}
 
 
