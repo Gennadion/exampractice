@@ -14,7 +14,7 @@
 using namespace std;
 
 //Function Prototypes
-int sumOfRange(int startVal, int endVal);
+int sumOfRange(const int startVal, const int endVal);
 int productOfRange(int startVal, int endVal);
 bool isPositive(const double value);
 void showMenu();
@@ -26,14 +26,20 @@ void showMenu();
  */
 int main()
 {
-    int choice;
+    int choice = -1;
+    int start, end;
+    bool valid = 0;
 
-    while (choice != 0) {
+    do {
         showMenu();
         cin >> choice;
 
         switch (choice) {
-        case 1: //sumOfRange
+        case 1:
+            cout << "Enter the starting and ending values: \n";
+            cin >> start >> end;
+            cin.ignore(); //Ignore phantom line
+            cout << sumOfRange(start, end) << endl;
             break;
         case 2: //productOfRange
             break;
@@ -45,8 +51,8 @@ int main()
             cerr << "Invalid choice! Try again" << endl;
             break;
         }
-    }
-}
+    }while (choice != 0);
+} 
 
 /**
  * Function <code>showMenu</code> displays the menu that is used from
@@ -60,6 +66,23 @@ void showMenu()
     cout << " 3) Determine if the value is positive or negative \n";
     cout << endl;
     cout << " 0) Exit \n";
+}
+
+/**
+ * Function <code>sumOfRange</code> adds all elements in a defined range.
+ * <BR>
+ * @param startVal Starting value from which addition will start.
+ * @param endVal Last value to be added from the range.
+  * @return Returns the sum.
+ */
+int sumOfRange(const int startVal, const int endVal)
+{
+    int sum = 0;
+    for (int i = startVal; i <= endVal; i++)
+        sum += i;
+
+    assert(sum != 0); //To see if sum variable has been modified
+    return sum;
 }
 
 
