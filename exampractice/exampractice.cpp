@@ -28,7 +28,7 @@ int main()
 {
     int choice = -1;
     int start, end;
-    bool valid = 0;
+    bool val;
 
     do {
         showMenu();
@@ -47,7 +47,24 @@ int main()
             cin.ignore(); //Ignore phantom line
             cout << productOfRange(start, end) << endl;
             break;
-        case 3: //isPositive
+        case 3: 
+            do {
+                
+                cout << "Enter the value: \n";
+                cin >> start;
+                static_cast<int>(start);
+                cin.ignore(); //Ignore phantom line
+                
+                if (start == 0) {
+                    cin.ignore(); //Ignore phantom line
+                    cout << "0 is neither positive nor negative \n";
+                }
+            } while (start == 0);
+                val = isPositive(start);
+                if (val == 1)
+                    cout << "Positive \n";
+                else
+                    cout << "Negative \n";
             break;
         case 0: //Exit
             break;
@@ -104,4 +121,18 @@ int productOfRange(const int startVal, const int endVal)
     return result;
 }
 
+/**
+ * Function <code>isPositive</code> computes the product of the elements in a defined range.
+ * <BR>
+ * @param value A number to be determined if positive or negative
+ * @return Returns <code>true</code> if the number is positive, <code>false</code> if the number is negative.
+ */
+bool isPositive(double value)
+{
+    assert(value != 0); //Must NOT be 0
+    if (value > 0)
+        return true;
+    else
+        return false;
+}
 
